@@ -2,6 +2,7 @@ package com.library.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -20,8 +21,10 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class BookService {
 
-	private final BookRepository bookRepository = null;
-	private final BorrowerRepository borrowerRepository = null;
+	@Autowired
+	private BookRepository bookRepository;
+	@Autowired
+	private BorrowerRepository borrowerRepository;
 
 	public Book registerBook(BookDTO bookDTO) {
 		Book book = new Book();

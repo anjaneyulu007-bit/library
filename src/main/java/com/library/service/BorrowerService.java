@@ -2,6 +2,7 @@ package com.library.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.library.dto.BorrowerDTO;
@@ -16,7 +17,8 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class BorrowerService {
 
-	private final BorrowerRepository borrowerRepository = null;
+	@Autowired
+	private BorrowerRepository borrowerRepository;
 
 	public Borrower registerBorrower(BorrowerDTO borrowerDTO) {
 		if (borrowerRepository.existsByEmail(borrowerDTO.getEmail())) {
